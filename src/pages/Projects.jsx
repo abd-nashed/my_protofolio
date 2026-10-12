@@ -107,7 +107,7 @@ const Projects = () => {
                   </svg>
                 </a>
 
-                <a href="https://github.com/abd-nashed/my_store_apk/releases" className="project-card__btn project-card__btn--download">
+                <a href="https://github.com/abd-nashed/Comprehensive_e-commerce_store_app/releases/tag/v1.0.0" className="project-card__btn project-card__btn--download">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                     <polyline points="7 10 12 15 17 10" />
@@ -219,7 +219,7 @@ const Projects = () => {
                   </svg>
                 </a>
 
-                <a href="https://github.com/abd-nashed/photo_editor_apk_download/releases" className="project-card__btn project-card__btn--download">
+                <a href="https://github.com/abd-nashed/Photo_editor_app/releases/tag/v1.0.0" className="project-card__btn project-card__btn--download">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                     <polyline points="7 10 12 15 17 10" />
