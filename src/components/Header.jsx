@@ -44,7 +44,6 @@ const Header = () => {
   //  دالة تبديل اللغة
   const handleLang = () => {
     dispatch(edit());
-    window.location.reload();
   };
 
   //  دالة تبديل الوضع
