@@ -344,7 +344,7 @@ const ProjectDetails = () => {
               rel="noopener noreferrer"
               className="project-details__btn project-details__btn--source"
             >
-              <span>رؤية الأكواد</span>
+              <span>{t("View Codes")}</span>
             </a>
 
             {project.backendCodeUrl && (
@@ -354,7 +354,7 @@ const ProjectDetails = () => {
                 rel="noopener noreferrer"
                 className="project-details__btn project-details__btn--source"
               >
-                <span>رؤية أكواد الواجهة الخلفية</span>
+                <span>{t("Viewing backend code")}</span>
               </a>
             )}
 
@@ -488,7 +488,7 @@ const ProjectDetails = () => {
                   rel="noopener noreferrer"
                   className="project-details__mobile-btn project-details__mobile-btn--source"
                 >
-                  <span>رؤية الأكواد</span>
+                  <span>{t("View Codes")}</span>
                 </a>
               </div>
 
