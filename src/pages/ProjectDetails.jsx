@@ -25,10 +25,13 @@ const projectsData = {
     ],
     tech: ['React', 'React Native', 'Redux', 'Django REST', 'Axios', 'Async'],
     liveUrl: 'https://solitary-salad-28cf.nashedabdalrzak.workers.dev/',
+    webCodeUrl: 'https://github.com/abd-nashed/A_fully_integrated_online_store_website',
+    backendCodeUrl: 'https://github.com/abd-nashed/E-commerce_store_backend',
     downloadUrl:
       'https://github.com/abd-nashed/Comprehensive_e-commerce_store_app/releases/tag/v1.0.0',
     video: 'https://www.youtube.com/embed/J19T3P7aWYE',
     mobileApp: {
+      codeUrl: 'https://github.com/abd-nashed/Comprehensive_e-commerce_store_app',
       downloadUrl:
         'https://github.com/abd-nashed/Comprehensive_e-commerce_store_app/releases/tag/v1.0.0',
       images: [
@@ -63,6 +66,7 @@ const projectsData = {
     ],
     tech: ['React', 'React Native', 'Redux', 'Django REST', 'Axios', 'Async'],
     liveUrl: 'https://restless-cloud-56ec.nashedabdalrzak.workers.dev/',
+    webCodeUrl: 'https://github.com/abd-nashed/your-web-project-code',
   },
 
   '3d-cars': {
@@ -76,13 +80,14 @@ const projectsData = {
     features: [
       'Interactive 3D car models',
       'Real-time customization',
-      'Color and parts selection',
+      'Color selection',
       'WebGL-powered rendering',
       'Smooth camera controls',
       'High-quality lighting and materials',
     ],
     tech: ['React Three Fiber', 'Three.js', 'WebGL'],
     liveUrl: 'https://odd-meadow-393e.nashedabdalrzak.workers.dev/',
+    webCodeUrl: 'https://github.com/abd-nashed/Car_modification_website',
     video: 'https://www.youtube.com/embed/jHxm4eQhhyE',
   },
 
@@ -105,10 +110,12 @@ const projectsData = {
     ],
     tech: ['React'],
     liveUrl: 'https://red-heart-a448.nashedabdalrzak.workers.dev/',
+    webCodeUrl: 'https://github.com/abd-nashed/Photo_editing_website',
     downloadUrl:
       'https://github.com/abd-nashed/Photo_editor_app/releases/tag/v1.0.0',
     video: 'https://www.youtube.com/embed/_dKZCDWaid4',
     mobileApp: {
+      codeUrl: 'https://github.com/abd-nashed/Photo_editor_app',
       downloadUrl:
         'https://github.com/abd-nashed/Photo_editor_app/releases/tag/v1.0.0',
       images: ['/photo1.png', '/photo2.png'],
@@ -125,14 +132,14 @@ const projectsData = {
       'An educational 3D experience that takes you on a journey through our solar system. Built with React Three Fiber and Three.js, it provides an interactive way to learn about planets, their orbits, and characteristics, all presented in Arabic.',
     features: [
       'Interactive 3D solar system',
-      'Arabic language educational content',
-      'Realistic planet textures',
+      'Textures of some realistic planets',
       'Orbital mechanics simulation',
       'Smooth navigation between planets',
       'Educational information panels',
     ],
     tech: ['React Three Fiber', 'Three.js', 'WebGL'],
     liveUrl: 'https://morning-rain-ca32.nashedabdalrzak.workers.dev/',
+    webCodeUrl: 'https://github.com/abd-nashed/The_Solar_System',
     video: 'https://www.youtube.com/embed/TdfNm_JRd-E',
   },
 };
@@ -331,6 +338,26 @@ const ProjectDetails = () => {
               <span>{t('Visit Website')}</span>
             </a>
 
+            <a
+              href={project.webCodeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-details__btn project-details__btn--source"
+            >
+              <span>رؤية الأكواد</span>
+            </a>
+
+            {project.backendCodeUrl && (
+              <a
+                href={project.backendCodeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-details__btn project-details__btn--source"
+              >
+                <span>رؤية أكواد الواجهة الخلفية</span>
+              </a>
+            )}
+
             {project.downloadUrl && (
               <a
                 href={project.downloadUrl}
@@ -454,6 +481,15 @@ const ProjectDetails = () => {
                     <span>{t('Download App')}</span>
                   </a>
                 )}
+
+                <a
+                  href={project.mobileApp.codeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-details__mobile-btn project-details__mobile-btn--source"
+                >
+                  <span>رؤية الأكواد</span>
+                </a>
               </div>
 
               {project.mobileApp.images &&
