@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Hero3D from '../components/Hero3d';
 import { TypeAnimation } from "react-type-animation";
 import { useTranslation } from 'react-i18next';
@@ -6,10 +6,31 @@ import '../styles/Hero.css';
 import { useSelector } from 'react-redux';
 
 const Hero = () => {
-    const lang = useSelector((state) => state.lang.lang);
+  const lang = useSelector((state) => state.lang.lang);
   const { t, i18n } = useTranslation();
+  const [animation, setAnimation] = useState(null);
+
   useEffect(() => {
-    i18n.changeLanguage(lang);
+    let isCurrentLanguage = true;
+
+    i18n.changeLanguage(lang).then(() => {
+      if (!isCurrentLanguage) return;
+
+      const translate = i18n.getFixedT(lang);
+      setAnimation({
+        lang,
+        sequence: [
+          translate('I build websites and mobile applications using React, React Native, and Django REST, creating seamless digital experiences.'),
+          2000,
+          translate('Welcome to my website.'),
+          2000,
+        ],
+      });
+    });
+
+    return () => {
+      isCurrentLanguage = false;
+    };
   }, [lang, i18n]);
   return (
     <section id="home" className="hero">
@@ -32,16 +53,13 @@ const Hero = () => {
           </h1>
 
           <p className="hero__description">
-            <TypeAnimation
-            key={lang}
-              sequence={[
-                t('I build websites and mobile applications using React, React Native, and Django REST, creating seamless digital experiences.'),
-                2000,
-                t('Welcome to my website.'),
-                2000,
-              ]}
-              repeat={Infinity}
-            />
+            {animation?.lang === lang && (
+              <TypeAnimation
+                key={animation.lang}
+                sequence={animation.sequence}
+                repeat={Infinity}
+              />
+            )}
           </p>
 
           <div className="hero__actions">
