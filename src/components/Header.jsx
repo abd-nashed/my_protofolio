@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { edit } from "../store/slices/langugeSlice";
 import '../styles/Header.css';
 import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const navigate = useNavigate();
   const lang = useSelector((state) => state.lang.lang);
   const { t, i18n } = useTranslation();
   useEffect(() => {
@@ -75,9 +78,25 @@ const Header = () => {
   }, []);
 
   //  دالة مساعدة لإغلاق القائمة عند الضغط على رابط
-  const handleNavClick = (id) => {
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const handleNavClick = (id, event) => {
+    if (event) event.preventDefault();
     setActiveSection(id);
     setIsMobileMenuOpen(false);
+
+    if (location.pathname === '/') {
+      scrollToSection(id);
+      return;
+    }
+
+    navigate('/');
+    setTimeout(() => scrollToSection(id), 200);
   };
 
   return (
@@ -86,7 +105,7 @@ const Header = () => {
 
         {/* 1. Logo */}
         <div className="header__logo">
-          <a href="#home" aria-label="Home">
+          <a href="/" aria-label="Home" onClick={(e) => handleNavClick('home', e)}>
             <img src="/logo.PNG" alt="Logo" className="header__logo-img" />
           </a>
         </div>
@@ -100,9 +119,9 @@ const Header = () => {
 
             <li className="header__nav-item">
               <a
-                href="#home"
+                href="/"
                 className={`header__nav-link ${activeSection === 'home' ? 'header__nav-link--active' : ''}`}
-                onClick={() => handleNavClick('home')}
+                onClick={(e) => handleNavClick('home', e)}
               >
                 {t('Home')}
               </a>
@@ -110,9 +129,9 @@ const Header = () => {
 
             <li className="header__nav-item">
               <a
-                href="#about"
+                href="/"
                 className={`header__nav-link ${activeSection === 'about' ? 'header__nav-link--active' : ''}`}
-                onClick={() => handleNavClick('about')}
+                onClick={(e) => handleNavClick('about', e)}
               >
                 {t('About')}
               </a>
@@ -120,9 +139,9 @@ const Header = () => {
 
             <li className="header__nav-item">
               <a
-                href="#skills"
+                href="/"
                 className={`header__nav-link ${activeSection === 'skills' ? 'header__nav-link--active' : ''}`}
-                onClick={() => handleNavClick('skills')}
+                onClick={(e) => handleNavClick('skills', e)}
               >
                 {t('Skills')}
               </a>
@@ -130,9 +149,9 @@ const Header = () => {
 
             <li className="header__nav-item">
               <a
-                href="#projects"
+                href="/"
                 className={`header__nav-link ${activeSection === 'projects' ? 'header__nav-link--active' : ''}`}
-                onClick={() => handleNavClick('projects')}
+                onClick={(e) => handleNavClick('projects', e)}
               >
                 {t('Projects')}
               </a>
@@ -140,9 +159,9 @@ const Header = () => {
 
             <li className="header__nav-item">
               <a
-                href="#contact"
+                href="/"
                 className={`header__nav-link ${activeSection === 'contact' ? 'header__nav-link--active' : ''}`}
-                onClick={() => handleNavClick('contact')}
+                onClick={(e) => handleNavClick('contact', e)}
               >
                 {t('Contact')}
               </a>
@@ -195,7 +214,7 @@ const Header = () => {
             )}
           </button>
 
-          <a href="#contact" className="header__cta">
+          <a href="/" className="header__cta" onClick={(e) => handleNavClick('contact', e)}>
             <span>{t("Let's Talk")}</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />

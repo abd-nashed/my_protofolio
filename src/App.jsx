@@ -1,5 +1,7 @@
 import { lazy, Suspense } from 'react';
 import Header from './components/Header';
+import { Route, Routes } from 'react-router-dom';
+import ProjectDetails from './pages/ProjectDetails';
 
 const Hero = lazy(() => import('./pages/Hero'));
 const About = lazy(() => import('./pages/About'));
@@ -11,13 +13,21 @@ function App() {
   return (
     <>
       <Header />
-      <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </Suspense>
+      <Routes>
+        <Route
+          index
+          element={
+            <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
+              <Hero />
+              <About />
+              <Skills />
+              <Projects />
+              <Contact />
+            </Suspense>
+          }
+        />
+        <Route path="/project/:projectId" element={<ProjectDetails />} />
+      </Routes>
     </>
   );
 }
