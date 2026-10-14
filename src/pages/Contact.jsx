@@ -95,7 +95,7 @@ const SOCIAL_LINKS = [
   {
     name: 'Instagram',
     icon: <FaInstagram />,
-    url: 'https://www.instagram.com/abd_alrzak_nashed/',
+    url: 'https://instagram.com/abdurrazzaqnashed?obrf=cmY4cjFtbWViN3Rp&utm_source=qr',
     color: '#E4405F'
   },
 
