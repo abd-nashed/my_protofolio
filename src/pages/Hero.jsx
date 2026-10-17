@@ -85,8 +85,8 @@ const Hero = () => {
             </a>
 
             <a
-              href="/cv.pdf"
-              download="Abdur_Razzaq_Nashed_CV.pdf"
+              href="../public/Abdulrazak_Nashed_CV_Arabic_English_White.pdf"
+              download="Abdulrazak_Nashed_CV_Arabic_English_White.pdf"
               className="hero__btn hero__btn--cv"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
